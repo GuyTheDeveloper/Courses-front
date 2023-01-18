@@ -8,7 +8,8 @@
   gap: 20px;
   margin-top: 55px;
 
-  &__loader {
+  &__loader,
+  &__empty {
     position: absolute;
     top: 0;
     right: 0;
@@ -18,5 +19,9 @@
     align-items: center;
     justify-content: center;
     color: orangered;
+  }
+
+  &__empty {
+    font-size: 28px;
   }
 }

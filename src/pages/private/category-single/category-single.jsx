@@ -5,7 +5,7 @@ import { filterCourse } from "../../../store/slices/courses";
 import "./_category-single.scss";
 
 export const CategorySingle = ({ category }) => {
-  const { isLoading, courses } = useSelector((state) => state.course);
+  const { isLoading, courses, status } = useSelector((state) => state.course);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,6 +23,9 @@ export const CategorySingle = ({ category }) => {
           <CourseCard key={course.course_id} course={course} />
         ))
       )}
+      {courses.length === 0 && !isLoading ? (
+        <div className="category-single__empty">Empty</div>
+      ) : null}
     </div>
   );
 };
