@@ -37,10 +37,6 @@ export const Header = () => {
             <Link to="/category/design-technology" className="header__link">
               Design technology
             </Link>
-            <Link to="">
-              <AiOutlineHeart />
-              <span>1</span>
-            </Link>
             <div
               className="header__user"
               onClick={() => setOpenSettings((prev) => !prev)}
