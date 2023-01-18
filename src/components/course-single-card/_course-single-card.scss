@@ -1,0 +1,16 @@
+.course-single-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > img {
+    order: -1;
+    width: 500px;
+    height: 500px;
+    max-width: auto;
+  }
+
+  &__heading {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,93 @@
+.header {
+  // background-color: white;
+  padding-block: 20px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #ffffff;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__user {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  &__settings {
+    position: absolute;
+    top: -200px;
+    left: -160px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 180px;
+    padding: 20px;
+    background-color: rgb(224, 220, 220);
+    // border: 2px solid #000000;
+    border-radius: 10px;
+    transition: all 340ms ease;
+
+    &--active {
+      top: 30px;
+      z-index: 1;
+    }
+
+    &__link {
+      color: #000000;
+      text-decoration: none;
+      text-transform: capitalize;
+      text-align: center;
+      border-radius: 22px;
+      padding-block: 8px;
+      padding-inline: 5px;
+
+      &:hover {
+        background-color: buttonface;
+      }
+    }
+  }
+
+  &__logo {
+    color: #000000;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  &__logout {
+    // background-color: black;
+    // color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-block: 7px;
+    background-color: transparent;
+    border-radius: 22px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: buttonface;
+    }
+  }
+}

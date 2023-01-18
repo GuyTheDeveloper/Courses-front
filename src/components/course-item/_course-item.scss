@@ -1,0 +1,11 @@
+.course-item {
+  text-align: center;
+
+  &:nth-child(even) {
+    background-color: green;
+  }
+
+  & > td > img {
+    margin-top: 5px;
+  }
+}
