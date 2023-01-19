@@ -27,6 +27,7 @@ export const Modal = ({ open, setOpen, course, img }) => {
     formData = {
       title: form.title.value,
       price: form.price.value,
+      description: form.description.value,
       category_id: form.category.value,
     };
 
@@ -52,7 +53,10 @@ export const Modal = ({ open, setOpen, course, img }) => {
         <div className="modal-wrapper">
           <div className="modal__header">
             <span>Update your course</span>{" "}
-            <button onClick={() => setOpen(false)}>
+            <button
+              onClick={() => setOpen(false)}
+              className="modal__header__close"
+            >
               <AiOutlineClose />
             </button>
           </div>
@@ -60,29 +64,14 @@ export const Modal = ({ open, setOpen, course, img }) => {
             <form ref={formRef} className="modal__body">
               <input
                 name="title"
+                className="modal__title"
                 type="text"
                 placeholder="Title"
                 defaultValue={course.title}
                 required
               />
-              <label htmlFor="image" className="drop-container">
-                +<span className="drop-title">Upload</span>
-                <input
-                  name="image"
-                  type="file"
-                  id="image"
-                  accept="image/*"
-                  className="fileUpload"
-                  onChange={(e) => setSelectedFile(e.target.files[0])}
-                  required
-                />
-                <img
-                  src={image ? image : img}
-                  className={`${image || img ? "uploadImg" : ""}`}
-                  alt="Selected"
-                />
-              </label>
               <input
+                className="modal__price"
                 type="number"
                 placeholder="Price"
                 name="price"
@@ -96,12 +85,46 @@ export const Modal = ({ open, setOpen, course, img }) => {
                 <option value={3}>Design technology</option>
               </select>
 
-              <button type="reset" onClick={() => setOpen(false)}>
-                Cancel
-              </button>
-              <button type="submit" onClick={handleSubmit} disabled={isLoading}>
-                Save
-              </button>
+              <div className="modal__center">
+                {" "}
+                <label htmlFor="image" className="drop-container">
+                  +<span className="drop-title">Upload</span>
+                  <input
+                    name="image"
+                    type="file"
+                    id="image"
+                    accept="image/*"
+                    className="fileUpload"
+                    onChange={(e) => setSelectedFile(e.target.files[0])}
+                    required
+                  />
+                  <img
+                    src={image ? image : img}
+                    className={`${image || img ? "uploadImg" : ""}`}
+                    alt="Selected"
+                  />
+                </label>
+                <textarea
+                  name="description"
+                  className="modal__description"
+                  defaultValue={course.description}
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+
+              <div className="modal__footer">
+                <button type="reset" onClick={() => setOpen(false)}>
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  disabled={isLoading}
+                >
+                  Save
+                </button>
+              </div>
             </form>
           </div>
         </div>
