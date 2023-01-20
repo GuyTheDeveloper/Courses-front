@@ -7,35 +7,12 @@ import "./_user-courses.scss";
 export const UserCourses = () => {
   const { isLoading, courses } = useSelector((state) => state.course);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getUsersCourse());
   }, []);
-  console.log(courses);
 
   return (
-    // <div>
-    //   <div className="user-courses">
-    //     <div className="user-courses__header">
-    //       <span>Id</span>
-    //       <span>Name</span>
-    //       <span>Price</span>
-    //       <span>Image</span>
-    //       <span>Description</span>
-    //     </div>
-    //     {isLoading ? (
-    //       <h1>Loading...</h1>
-    //     ) : (
-    //       courses.map((course, index) => (
-    //         <CourseItem
-    //           key={course.course_id}
-    //           course={course}
-    //           index={index + 1}
-    //         />
-    //       ))
-    //     )}
-    //   </div>
-    // </div>
-
     <table className="user-courses">
       <thead className="user-courses__header">
         <th>Id</th>
@@ -46,7 +23,9 @@ export const UserCourses = () => {
       </thead>
       <tbody>
         {isLoading ? (
-          <h1>Loading...</h1>
+          <tr>
+            <h1>Loading...</h1>
+          </tr>
         ) : (
           courses.map((course, index) => (
             <CourseItem
